@@ -1,5 +1,5 @@
 
-function insertNewTwit(profileText, profileName, profilePhoto) {
+function insertNewProfile(profileText, profileName, profilePhoto) {
 
     var profileTemplate = Handlebars.templates.profile;
   
@@ -9,8 +9,8 @@ function insertNewTwit(profileText, profileName, profilePhoto) {
     photoURL: profilePhoto
     });
   
-    var twitContainer = document.querySelector('.twit-container');
-    twitContainer.insertAdjacentHTML('beforeend', newTwitHTML);
+    var profileContainer = document.querySelector('.profile-container');
+    profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
   
   }
 
@@ -133,10 +133,10 @@ function parsepprofile(profileElem) {
     var profileText = profileElem.querySelector('.profile-text');
     profile.text = profileText.textContent.trim();
   
-    var profileName = twitElem.querySelector('.profile-name a');
+    var profileName = profileElem.querySelector('.profile-name a');
     profile.name = profileName.textContent.trim();
   
-    var profilePhoto = twitElem.querySelector('.profile-photo a');
+    var profilePhoto = profileElem.querySelector('.profile-photo a');
     profile.photo = profilePhoto.textContent.trim();
 
     return profile;
