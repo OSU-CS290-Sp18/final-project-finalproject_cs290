@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <title>Lizard Love</title>
 
+    <!-- This is a stylesheet that includes the font you should use: Roboto -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
@@ -38,22 +39,20 @@
 
     <main class="profile-container">
 
-      <article class="profile">
-        <!-- <div class="pr&#45;icon"> -->
-        <!--   <i class="fas fa&#45;bullhorn"></i> -->
-        <!-- </div> -->
-        <div class="profile-content">
-            <p class = "photo-container">
-            <img class = "profile-photo" src ="{{photoURL}}"/>
-            </p>
-            <p class="profile-text">
-                I'm an awesome lizard
-            </p>
-            <!-- <p class="twit&#45;attribution"> -->
-            <!--   <a href="#">CSMajor2018</a> -->
-            <!-- </p> -->
-        </div>
-      </article>
+        <article class="profile">
+            <div class="profile-content">
+                <p class = "profile-name">
+                    {{name}}
+                </p>
+                <p class = "photo-container">
+                    <img class = "profile-photo" src ="{{photoURL}}"/>
+                </p>
+                <p class="profile-text">
+                    {{text}}
+                </p>
+                <button type="button" id="like-button"><i class="fas fa-heart"></i></button>
+            </div>
+        </article>
 
     </main>
 
