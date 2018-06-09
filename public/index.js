@@ -1,11 +1,25 @@
 
 
 
+var allProfiles = [];
 
 
 
+function parsepprofile(profileElem) {
 
+    var profile = {};
+  
+    var profileText = profileElem.querySelector('.profile-text');
+    profile.text = profileText.textContent.trim();
+  
+    var profileName = twitElem.querySelector('.profile-name a');
+    profile.name = profileName.textContent.trim();
+  
+    var profilePhoto = twitElem.querySelector('.profile-photo a');
+    profile.photo = profilePhoto.textContent.trim();
 
+    return profile;
+  }
 
 /*
  * Wait until the DOM content is loaded, and then hook up UI interactions, etc.
