@@ -14,6 +14,10 @@ app.get('/', function (req, res, next){
 
 app.use(express.static('public'));
 
+app.get('/public/*', function (req, res, next){
+  res.status(200).sendFile(path.join(__dirname + 'public'));
+});
+
 app.get('*', function(req, res){
   res.status(404).render('404');
 });
