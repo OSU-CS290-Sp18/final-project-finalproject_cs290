@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta charset="utf-8">
+    <title>Lizard Love</title>
+
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css" media="screen">
+
+    <!-- This script incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
+    <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
+
+    <script src="/index.js" charset="utf-8" defer></script>
+
+  </head>
+
+  <body>
+
+    <header>
+      <!-- The <i> tag below includes the lizzard hand icon from Font Awesome -->
+      <a href="#"><h1 class="site-title"><i class="far fa-heart"></i> Lizard Love</h1></a>
+
+      <nav class="navbar">
+        <ul class="navlist">
+          <li class="navitem navlink active"><a href="#">Home</a></li>
+          <li class="navitem navlink"><a href="#">Lizards</a></li>
+          <li class="navitem navlink"><a href="#">Snakes</a></li>
+          <button type="button" id="create-profile-button"><i class="fas fa-user-plus"></i></button>
+          <li class="navitem navbar-search">
+            <input type="text" id="navbar-search-input" placeholder="Search...">
+            <button type="button" id="navbar-search-button"><i class="fas fa-search"></i></button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="profile-container">
+
+      <article class="profile">
+        <!-- <div class="pr&#45;icon"> -->
+        <!--   <i class="fas fa&#45;bullhorn"></i> -->
+        <!-- </div> -->
+        <div class="profile-content">
+            <p class = "photo-container">
+            <img class = "profile-photo" src ="{{photoURL}}"/>
+            </p>
+            <p class="profile-text">
+                I'm an awesome lizard
+            </p>
+            <!-- <p class="twit&#45;attribution"> -->
+            <!--   <a href="#">CSMajor2018</a> -->
+            <!-- </p> -->
+        </div>
+      </article>
+
+    </main>
+
+    <div id="modal-backdrop" class="hidden"></div>
+    <div id="create-profile-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Create a Profile</h3>
+          <button type="button" class="modal-close-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="twit-input-element">
+            <label for="twit-text-input">Twit text</label>
+            <textarea id="twit-text-input"></textarea>
+          </div>
+          <div class="twit-input-element">
+            <label for="twit-attribution-input">Author</label>
+            <input type="text" id="twit-attribution-input">
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="modal-cancel-button">Cancel</button>
+          <button type="button" class="modal-accept-button">Create Twit</button>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>

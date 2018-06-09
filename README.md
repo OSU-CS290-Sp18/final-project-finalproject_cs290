@@ -1,5 +1,7 @@
 CS 290 Final Project
+
 Code and demo due by 10:00am on Wednesday, 6/13/2018
+
 In this course, a final programming project will take the place of formal exams to test your understanding of the material.  The final project will involve working with a team of 3-4 people to implement a substantial web app that utilizes all of the major components of the web application stack covered in this class.  Specifically, you and your teammates will write a web app that satisfies all of these requirements:
 
 The app uses HTML and CSS to implement a well-designed client interface.
@@ -54,13 +56,3 @@ The commit log of your GitHub repository.
 Your presence at and participation in your team’s project demo.
 
 In particular, if your GitHub commit log shows that you did not make meaningful contributions to your team’s implementation of your app and/or you do not participate in your team’s demonstration of your app (without explicit prior approval by me), you will receive a lower grade on the project than your teammates.  I may use other sources as evidence of your participation, as well.
-
-Project responsibilities:
-
-Rebecca - In charge of HTML/Handlebars functionality 
-Brandon - In charge of Index.js / style.css
-Aren - In charge of server.js / MongoDB
-
-Met times: 
-
-6/9/2018 @ 1:00pm
