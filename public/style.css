@@ -11,11 +11,11 @@ a {
 .site-title {
     margin: 0;
     padding: 10px 20px;
-    font: 'Fredoka-One';
-    font-size: 30px;
+    font-family: 'Fredoka One';
+    font-size: 50px;
     font-weight: 100;
-    background-color: #319df6;
-    color: #fff;
+    background-color: #46C94E;
+    color: #FFFF00;
 }
 
 .navbar {
@@ -118,35 +118,54 @@ a:focus {
 }
 
 .profile-content .profile-name {
+    font-family: 'Fredoka One';
+    margin-top: 8px;
+    text-align: left;
+}
+
+.profile-content .photo-container {
     margin-top: 8px;
     text-align: right;
     font-weight: bold;
 }
 
+.profile-content .profile-photo {
+    width: 300px;
+}
+
 #create-profile-button {
     position: fixed;
-    right: 30px;
-    bottom: 30px;
+    right: 10px;
+    top: 10px;
     height: 60px;
     width: 60px;
     border: none;
     border-radius: 30px;
     font-size: 30px;
-    background-color: #ff1010;
-    color: #fff;
     cursor: pointer;
-    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+    /* background-color: #FFFF00; */
+    /* color: #46C94E; */
+    /* box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25); */
+    color: #FFFF00;
+    background-color: #46C94E;
+    box-shadow: none;
 }
 
 #create-profile-button:hover,
 #create-profile-button:focus {
-    right: 27px;
-    bottom: 27px;
-    height: 66px;
-    width: 66px;
-    border-radius: 33px;
-    font-size: 36px;
-    background-color: #319df6;
+    /* right: 27px; */
+    /* bottom: 27px; */
+    /* height: 66px; */
+    /* width: 66px; */
+    /* border-radius: 33px; */
+    /* font-size: 36px; */
+    /* color: #FFFF00; */
+    /* background-color: #46C94E; */
+    /* box-shadow: none; */
+    background-color: #FFFF00;
+    color: #46C94E;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+    /* background-color: #319df6; */
 }
 
 #create-profile-button:focus {
@@ -252,3 +271,28 @@ a:focus {
     background-color: #eee;
 }
 
+.modal-footer .modal-accept-button {
+    background-color: #319df6;
+    color: #fff;
+}
+
+.modal-footer .modal-accept-button:hover {
+    background-color: #087dde;
+}
+
+.error-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.error-container h2 {
+    margin: 10px 0;
+    font-size: 96px;
+    font-weight: 100;
+}
+
+.error-container h3 {
+    margin: 10px 0;
+    font-size: 36px;
+    font-weight: 400;
+}
