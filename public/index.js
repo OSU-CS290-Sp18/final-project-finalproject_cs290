@@ -5,6 +5,40 @@ var allProfiles = [];
 
 
 
+function showCreateProfileModal() {
+
+    var modalBackdrop = document.getElementById('modal-backdrop');
+    var createProfileModal = document.getElementById('create-profile-modal');
+  
+    // Show the modal and its backdrop.
+    modalBackdrop.classList.remove('hidden');
+    createProfileModal.classList.remove('hidden');
+  
+  }
+
+function clearProfileInputs() {
+
+    var profileInputs = document.getElementsByClassName('profile-input-element');
+    for (var i = 0; i < profileInputs.length; i++) {
+      var input = profileInputs[i].querySelector('input, textarea');
+      input.value = '';
+    }
+  }
+
+function hideCreateProfileModal() {
+
+    var modalBackdrop = document.getElementById('modal-backdrop');
+    var createProfileModal = document.getElementById('create-profile-modal');
+  
+    // Hide the modal and its backdrop.
+    modalBackdrop.classList.add('hidden');
+    createProfileModal.classList.add('hidden');
+  
+    clearProfileInputs();
+  }
+
+
+
 function parsepprofile(profileElem) {
 
     var profile = {};
