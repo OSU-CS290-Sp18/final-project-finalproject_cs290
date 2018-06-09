@@ -54,3 +54,13 @@ The commit log of your GitHub repository.
 Your presence at and participation in your team’s project demo.
 
 In particular, if your GitHub commit log shows that you did not make meaningful contributions to your team’s implementation of your app and/or you do not participate in your team’s demonstration of your app (without explicit prior approval by me), you will receive a lower grade on the project than your teammates.  I may use other sources as evidence of your participation, as well.
+
+Project responsibilities:
+
+Rebecca - In charge of HTML/Handlebars functionality 
+Brandon - In charge of Index.js / style.css
+Aren - In charge of server.js / MongoDB
+
+Met times: 
+
+6/9/2018 @ 1:00pm
