@@ -5,13 +5,15 @@
     <meta charset="utf-8">
     <title>Lizard Love</title>
 
-    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700" rel="stylesheet"> -->
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css" media="screen">
 
-    <!-- This script incorporates SVG icons from Font Awesome: http://fontawesome.com/ -->
     <script src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" defer></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.11/hanlebars.runtime.js" defer></script>
+
+    <script src="/profileTemplate.js" charset="utf-8" defer></script>
 
     <!-- <script src="/index.js" charset="utf&#45;8" defer></script> -->
 
@@ -20,8 +22,11 @@
   <body>
 
     <header>
-      <!-- The <i> tag below includes the lizzard hand icon from Font Awesome -->
-      <a href="#"><h1 class="site-title"><i class="far fa-hand-lizard"></i> Lizard Love</h1></a>
+      <a href="#">
+          <h1 class="site-title">
+              <img class = "logo-photo" src = "../lizardLogo.png"></img>
+              Lizard Love</h1>
+      </a>
 
       <nav class="navbar">
         <ul class="navlist">
@@ -41,13 +46,28 @@
         <article class="profile">
             <div class="profile-content">
                 <p class = "profile-name">
-                    {{name}}
+                    John
                 </p>
                 <p class = "photo-container">
                     <img class = "profile-photo" src ="https://images1.miaminewtimes.com/imager/u/745xauto/8890822/feature1-4-02bdad069bc0bfeb.jpg"/>
                 </p>
                 <p class="profile-text">
-                    {{text}}
+                    Hey Y'all! I'm a cool tegu! 
+                </p>
+                <button type="button" id="like-button"><i class="fas fa-heart"></i></button>
+            </div>
+        </article>
+
+        <article class="profile">
+            <div class="profile-content">
+                <p class = "profile-name">
+                    Carrie
+                </p>
+                <p class = "photo-container">
+                    <img class = "profile-photo" src ="https://petco.scene7.com/is/image/PETCO/542920-right-1?$ProductDetail-large$"/>
+                </p>
+                <p class="profile-text">
+                   What's up? I'm a crested gecko. 
                 </p>
                 <button type="button" id="like-button"><i class="fas fa-heart"></i></button>
             </div>
