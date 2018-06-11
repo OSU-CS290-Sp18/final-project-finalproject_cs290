@@ -125,17 +125,18 @@ function doSearchUpdate() {
     });
 }
 
-function parsepprofile(profileElem) {
+function parseProfile(profileElem) {
 
     var profile = {};
   
     var profileDescription = profileElem.querySelector('.profile-description');
     profile.description = profileDescription.textContent.trim();
   
-    var profileName = profileElem.querySelector('.profile-name a');
+    var profileName = profileElem.querySelector('.profile-name');
     profile.name = profileName.textContent.trim();
   
-    var profilePhoto = profileElem.querySelector('.profile-photo a');
+    // var profilePhoto = profileElem.querySelector('.profile-photo a');
+    var profilePhoto = profileElem.querySelector('.profile-photo');
     profile.photo = profilePhoto.textContent.trim();
 
     return profile;
@@ -149,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function () {
     // Remember all of the existing twits in an array that we can use for search.
     var profileElems = document.getElementsByClassName('profile');
     for (var i = 0; i < profileElems.length; i++) {
-      allProfiles.push(parseProfile(profileELems[i]));
+      allProfiles.push(parseProfile(profileElems[i]));
     }
   
     var createProfileButton = document.getElementById('create-profile-button');
@@ -163,17 +164,17 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   
     var modalCancelButton = document.querySelector('#create-profile-modal .modal-cancel-button');
-    if (modalCancel) {
-      modalCancel.addEventListener('click', hideCreateProfileModal);
+    if (modalCancelButton) {
+      modalCancelButton.addEventListener('click', hideCreateProfileModal);
     }
   
     var modalAccept = document.querySelector('#create-profile-modal .modal-accept-button');
     if (modalAccept) {
-      modalAccept.addEventListener('click', handleModalAccept);
+      modalAccept.addEventListener('click', handleModalAcceptClick);
     }
   
-    var search = document.getElementById('navbar-search-button');
-    if (search) {
+    var searchButton = document.getElementById('navbar-search-button');
+    if (searchButton) {
       searchButton.addEventListener('click', doSearchUpdate);
     }
   
