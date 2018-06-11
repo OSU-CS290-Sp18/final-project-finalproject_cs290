@@ -1,18 +1,17 @@
-
-function insertNewProfile(profileText, profileName, profilePhoto) {
-
+function insertNewProfile(profileDescription, profileName, profilePhoto) {
     var profileTemplate = Handlebars.templates.profile;
   
     var newProfileHTML = profileTemplate({
-    description: profileDescription,
-    name: profileName,
-    photoURL: profilePhoto
+        description: profileDescription,
+        name: profileName,
+        photoURL: profilePhoto
     });
   
     var profileContainer = document.querySelector('.profile-container');
     profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
-  
-  }
+    hideCreateProfileModal();
+
+}
 
 var allProfiles = [];
 
@@ -95,7 +94,7 @@ function profileMatchesSearch(profile, searchQuery) {
      * author contains the search query.
      */
     searchQuery = searchQuery.trim().toLowerCase();
-    return (profile.author + " " + profile.text).toLowerCase().indexOf(searchQuery) >= 0;
+    return (profile.name + " " + profile.description).toLowerCase().indexOf(searchQuery) >= 0;
 }
 
 function doSearchUpdate() {
@@ -130,8 +129,8 @@ function parsepprofile(profileElem) {
 
     var profile = {};
   
-    var profileText = profileElem.querySelector('.profile-text');
-    profile.text = profileText.textContent.trim();
+    var profileDescription = profileElem.querySelector('.profile-description');
+    profile.description = profileDescription.textContent.trim();
   
     var profileName = profileElem.querySelector('.profile-name a');
     profile.name = profileName.textContent.trim();
