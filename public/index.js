@@ -21,7 +21,7 @@ function handleModalAcceptClick() {
 
     var profileDescription = document.getElementById('profile-description-input').value;
     var profileName = document.getElementById('profile-name-input').value;
-    var profilePhoto = document.getElementById('profile-photo-input').value;
+    var profilePhoto = document.getElementById('profile-photo-input').value.trim();
   
     if (profileDescription && profileName && profilePhoto) {
   
@@ -105,7 +105,7 @@ function doSearchUpdate() {
   
     allProfiles.forEach(function (profile) {
       if (profileMatchesSearch(profile, searchQuery)) {
-        insertNewProfile(profile.description, profile.name, profile.photo);
+        insertNewProfile(profile.description, profile.name, profile.photoURL);
       }
     });
 }
