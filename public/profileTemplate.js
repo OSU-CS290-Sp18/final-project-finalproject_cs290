@@ -7,8 +7,8 @@ templates['profile'] = template({"compiler":[7,">= 4.0.0"],"main":function(conta
     + alias4(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"name","hash":{},"data":data}) : helper)))
     + "\r\n        </p>\r\n        <p class = \"photo-container\">\r\n            <img class = \"profile-photo\" src =\""
     + alias4(((helper = (helper = helpers.photoURL || (depth0 != null ? depth0.photoURL : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"photoURL","hash":{},"data":data}) : helper)))
-    + "\"/>\r\n        </p>\r\n        <p class=\"profile-text\">\r\n            "
+    + "\"/>\r\n        </p>\r\n        <p class=\"profile-description\">\r\n            "
     + alias4(((helper = (helper = helpers.text || (depth0 != null ? depth0.text : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"text","hash":{},"data":data}) : helper)))
-    + "\r\n        </p>\r\n        <button type=\"button\" id=\"like-button\"><i class=\"fas fa-heart\"></i></button>\r\n    </div>\r\n</article>\r\n";
+    + "\r\n        </p>\r\n    </div>\r\n    <button type=\"button\" id=\"like-button\"><i class=\"fas fa-heart\"></i></button>\r\n</article>\r\n";
 },"useData":true});
 })();
