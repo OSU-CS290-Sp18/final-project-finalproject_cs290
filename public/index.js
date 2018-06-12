@@ -4,9 +4,9 @@ function insertNewProfile(profileDescription, profileName, profilePhoto) {
     var profileTemplate = Handlebars.templates.profile;
   
     var newProfileHTML = profileTemplate({
-        description: profileDescription,
         name: profileName,
         photoURL: profilePhoto
+        description: profileDescription,
     });
   
     var profileContainer = document.querySelector('.profile-container');
