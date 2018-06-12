@@ -31,13 +31,13 @@ app.get('/', function (req, res, next){
  });
 
 app.get('/lizards', function (req, res, next){
-  var profileCollection = mongoDB.collection('profile');
-  profileCollection.find().toArray(function (err, profile) {
+  var profileCollection = mongoDB.collection('lizards');
+  profileCollection.find().toArray(function (err, lizards) {
     if (err) {
       res.status(500).send("Error fetching profiles from DB.");
     } else {
       res.status(200).render('lizardPage', {
-        profile: profile
+        profile: lizards
       });
     }
   });
