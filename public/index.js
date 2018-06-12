@@ -1,7 +1,7 @@
-var profileTemplate = '../views/partials/profile';
+// var profileTemplate = '../views/partials/profile';
 
 function insertNewProfile(profileDescription, profileName, profilePhoto) {
-    var profileTemplate = Handlebars.templates.profileTemplate;
+    var profileTemplate = Handlebars.templates.profile;
   
     var newProfileHTML = profileTemplate({
         description: profileDescription,
