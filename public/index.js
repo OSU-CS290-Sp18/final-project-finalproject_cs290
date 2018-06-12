@@ -1,5 +1,7 @@
+var profileTemplate = '..views/partials/profile';
+
 function insertNewProfile(profileDescription, profileName, profilePhoto) {
-    var profileTemplate = Handlebars.templates.profile;
+    var profileTemplate = Handlebars.templates.profileTemplate;
   
     var newProfileHTML = profileTemplate({
         description: profileDescription,
@@ -17,7 +19,7 @@ var allProfiles = [];
 
 function handleModalAcceptClick() {
 
-    var profileDescription = document.getElementById('profile-desciption-input').value;
+    var profileDescription = document.getElementById('profile-description-input').value;
     var profileName = document.getElementById('profile-name-input').value;
     var profilePhoto = document.getElementById('profile-photo-input').value;
   
