@@ -1,7 +1,7 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
-//var bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 
 var mongoHost = process.env.MONGO_HOST;
@@ -22,7 +22,7 @@ var port = process.env.PORT || 3000;
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
 
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 app.use(express.static('public'));
 
