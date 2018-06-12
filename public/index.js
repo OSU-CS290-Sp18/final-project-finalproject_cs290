@@ -5,7 +5,7 @@ function insertNewProfile(profileDescription, profileName, profilePhoto) {
   
     var newProfileHTML = profileTemplate({
         name: profileName,
-        photoURL: profilePhoto
+        photoURL: profilePhoto,
         description: profileDescription,
     });
   
