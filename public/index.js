@@ -23,10 +23,6 @@ function handleModalAcceptClick() {
     var profileName = document.getElementById('profile-name-input').value;
     var profilePhoto = document.getElementById('profile-photo-input').value;
   
-    /*
-     * Only generate the new twit if the user supplied values for both the twit
-     * text and the twit attribution.  Give them an alert if they didn't.
-     */
     if (profileDescription && profileName && profilePhoto) {
   
       allProfiles.push({
@@ -84,17 +80,11 @@ function hideCreateProfileModal() {
 }
 
 function profileMatchesSearch(profile, searchQuery) {
-    /*
-     * An empty query matches all twits.
-     */
+ 
     if (!searchQuery) {
       return true;
     }
   
-    /*
-     * The search query matches the twit if either the twit's text or the twit's
-     * author contains the search query.
-     */
     searchQuery = searchQuery.trim().toLowerCase();
     return (profile.name + " " + profile.description).toLowerCase().indexOf(searchQuery) >= 0;
 }
@@ -106,9 +96,6 @@ function doSearchUpdate() {
      */
     var searchQuery = document.getElementById('navbar-search-input').value;
   
-    /*
-     * Remove all twits from the DOM temporarily.
-     */
     var profileContainer = document.querySelector('.profile-container');
     if (profileContainer) {
       while (profileContainer.lastChild) {
@@ -116,10 +103,6 @@ function doSearchUpdate() {
       }
     }
   
-    /*
-     * Loop through the collection of all twits and add twits back into the DOM
-     * if they match the current search query.
-     */
     allProfiles.forEach(function (profile) {
       if (profileMatchesSearch(profile, searchQuery)) {
         insertNewProfile(profile.description, profile.name, profile.photo);
@@ -149,7 +132,6 @@ function parseProfile(profileElem) {
  */
 window.addEventListener('DOMContentLoaded', function () {
 
-    // Remember all of the existing twits in an array that we can use for search.
     var profileElems = document.getElementsByClassName('profile');
     for (var i = 0; i < profileElems.length; i++) {
       allProfiles.push(parseProfile(profileElems[i]));
