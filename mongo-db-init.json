@@ -1,28 +1,57 @@
+[
 {
-  "name": "final-project-finalproject_cs290",
-  "version": "1.0.0",
-  "description": "Final Project",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "build": "handlebars views/partials/profile.handlebars -f public/profileTemplate.js",
-    "prestart": "npm run build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/OSU-CS290-Sp18/final-project-finalproject_cs290.git"
-  },
-  "author": "",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/OSU-CS290-Sp18/final-project-finalproject_cs290/issues"
-  },
-  "homepage": "https://github.com/OSU-CS290-Sp18/final-project-finalproject_cs290#readme",
-  "dependencies": {
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "handlebars": "^4.0.11"
-  },
-  "devDependencies": {}
+	"profile-name": "Kuno",
+  "profile-photo": "http://captivebredcreations.com/images/bluetegu15_large.jpg",
+  "profile-description": "Hey ya'll! I'm a cool Tegu!",
+  "hearts": 2,
 }
+
+{
+  "profile-name": "Pele",
+  "profile-photo": "http://www.reptilefact.com/wp-content/uploads/2016/10/Fire-Belly-Skink.jpg",
+  "profile-description": "I'm a Fire Skink, I look amazing!",
+  "hearts": 5,
+}
+
+{
+  "profile-name": "Carrie",
+  "profile-photo": "https://www.pangeareptile.com/store/images/companies/1/Crested-Gecko-night-light.jpg?1481150074931",
+  "profile-description": "What's up? I'm a Crested Geko.",
+  "hearts": 3,
+}
+
+{
+  "profile-name": "Ben",
+  "profile-photo": "https://tlhuynh17.files.wordpress.com/2014/12/red.jpg",
+  "profile-description": "I'm a dragon! A bearded dragon that is.",
+  "hearts": 3,
+}
+
+{
+  "profile-name": "George",
+  "profile-photo": "https://i.pinimg.com/originals/e7/f6/0a/e7f60a0853c3f09537ea56c7eaf4f151.jpg",
+  "profile-description": "I'm a rare tangerine leopard gecko, my scales are so pretty!",
+  "hearts": 2,
+}
+
+{
+  "profile-name": "Charles",
+  "profile-photo": "https://thefluidlens.files.wordpress.com/2017/09/abronia.jpg?w=1024",
+  "profile-description": "I might look like a dragon, but I'm just a Mexican alligator lizard. Don't be afraid!",
+  "hearts": 1,
+}
+
+{
+  "profile-name": "Stacy",
+  "profile-photo": "https://zoomedwebsite-g10v9whlnw8q2qdmulwq.netdna-ssl.com/wp-content/uploads/day-gecko-egg.jpg",
+  "profile-description": "You may have heard of my cousin the Geico gecko. We're Madagascar Day Geckos.",
+  "hearts": 1,
+}
+
+{
+  "profile-name": "Zachary",
+  "profile-photo": "I'm a Caiman Lizard.",
+  "profile-description": "I'm a Caiman Lizard",
+  "hearts": 0,
+}
+]
