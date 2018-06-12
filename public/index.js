@@ -21,7 +21,7 @@ function handleModalAcceptClick() {
 
     var profileDescription = document.getElementById('profile-description-input').value;
     var profileName = document.getElementById('profile-name-input').value;
-    var profilePhoto = document.getElementById('profile-photo-input').value.trim();
+    var profilePhoto = document.getElementById('profile-photo-input').value;
   
     if (profileDescription && profileName && profilePhoto) {
   
@@ -43,7 +43,6 @@ function handleModalAcceptClick() {
 }
 
 function clearSearchAndReinsertProfiles() {
-
     document.getElementById('navbar-search-input').value = "";
     doSearchUpdate();
 }
@@ -90,7 +89,6 @@ function profileMatchesSearch(profile, searchQuery) {
 }
 
 function doSearchUpdate() {
-
     /*
      * Grab the search query from the navbar search box.
      */
@@ -122,7 +120,7 @@ function parseProfile(profileElem) {
   
     // var profilePhoto = profileElem.querySelector('.profile-photo a');
     var profilePhoto = profileElem.querySelector('.profile-photo');
-    profile.photo = profilePhoto.textContent.trim();
+    profile.photoURL = profilePhoto.textContent.trim();
 
     return profile;
 }
