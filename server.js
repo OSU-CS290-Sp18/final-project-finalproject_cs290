@@ -10,9 +10,9 @@ var mongoUsername = process.env.MONGO_USERNAME;
 var mongoPassword = process.env.MONGO_PASSWORD;
 var mongoDBName = process.env.MONGO_DB_NAME;
 
-var mongoURL = "mongodb://" +
-  mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort +
-  "/" + mongoDBName;
+var mongoURL = "mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort + "/" + mongoDBName;
+
+console.log("==MongoDB URL:", mongoURL); 
 
 var mongoDB = null;
 
@@ -31,7 +31,7 @@ app.get('/', function (req, res, next){
  });
 
 app.get('/lizards', function (req, res, next){
-  var profileCollection = db.collection('profile');
+  var profileCollection = mongoDB.collection('profile');
   profileCollection.find().toArray(function (err, profile) {
     if (err) {
       res.status(500).send("Error fetching profiles from DB.");
