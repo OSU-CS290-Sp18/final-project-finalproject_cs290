@@ -203,7 +203,11 @@ a:focus {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: rgba(0, 0, 0, 0.85);
+    /* background-color: rgba(0, 0, 0, 0.85); */
+    background-color: black;
+    background-image: url("../lizardLogo.png");
+    background-size: 60px;
+    opacity: 0.85;
 }
 
 #create-profile-modal {
@@ -214,6 +218,7 @@ a:focus {
     right: 0;
     z-index: 1010;
     overflow: scroll;
+
 }
 
 .hidden {
@@ -226,8 +231,11 @@ a:focus {
     min-width: 350px;
     min-height: 300px;
     margin: 40px auto;
-    background-color: #fff;
+    background-color: #93C4C6;
     border-radius: 15px;
+    color: #073B3A;
+    font-family: "Handlee";
+    font-weight: bold;
 }
 
 .modal-header {
@@ -244,6 +252,10 @@ a:focus {
     background: none;
     padding: 0;
     cursor: pointer;
+}
+
+.modal-close-button {
+    outline: none;
 }
 
 .modal-body {
@@ -268,6 +280,7 @@ a:focus {
     padding: 8px;
     font-size: 20px;
     border: 1px solid #aaa;
+    border-radius: 10px;
 }
 
 .profile-input-element textarea {
@@ -282,8 +295,8 @@ a:focus {
 
 .modal-footer button {
     font-size: 20px;
-    background-color: #fff;
-    color: #333;
+    background-color: #073B3A;
+    color: white;
     border: 1px solid #333;
     border-radius: 5px;
     padding: 10px;
@@ -292,16 +305,24 @@ a:focus {
 }
 
 .modal-footer .modal-cancel-button:hover {
-    background-color: #eee;
+    background-color: #46C94E;
+}
+
+.modal-footer .modal-cancel-button:focus {
+    outline: none;
 }
 
 .modal-footer .modal-accept-button {
-    background-color: #319df6;
+    background-color: #073B3A;
     color: #fff;
 }
 
 .modal-footer .modal-accept-button:hover {
-    background-color: #087dde;
+    background-color: #46C94E;
+}
+
+.modal-footer .modal-accept-button:focus {
+    outline: none;
 }
 
 .error-container {
