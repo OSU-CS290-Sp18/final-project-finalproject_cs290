@@ -120,7 +120,7 @@ function parseProfile(profileElem) {
   
     // var profilePhoto = profileElem.querySelector('.profile-photo a');
     var profilePhoto = profileElem.querySelector('.profile-photo');
-    profile.photoURL = profilePhoto.textContent.trim();
+    profile.photoURL = profilePhoto.src;
 
     return profile;
 }
