@@ -4,9 +4,9 @@ function insertNewProfile(profileDescription, profileName, profilePhoto) {
     var profileTemplate = Handlebars.templates.profile;
   
     var newProfileHTML = profileTemplate({
-        name: profileName,
-        photoURL: profilePhoto,
-        description: profileDescription,
+        profileName: profileName,
+        profilePhoto: profilePhoto,
+        profileDescription: profileDescription,
     });
   
     var profileContainer = document.querySelector('.profile-container');
@@ -26,9 +26,9 @@ function handleModalAcceptClick() {
     if (profileDescription && profileName && profilePhoto) {
   
       allProfiles.push({
-        description: profileDescription,
         name: profileName,
-        photoURL: profilePhoto
+        photoURL: profilePhoto,
+        description: profileDescription
       });
   
       clearSearchAndReinsertProfiles();
