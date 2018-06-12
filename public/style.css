@@ -14,8 +14,8 @@ a {
     font-family: 'Fredoka One';
     font-size: 60px;
     font-weight: 100;
-    background-color: #073B3A; 
-    color: #46C94E; 
+    background-color: #073B3A;
+    color: #46C94E;
 }
 
 .logo-photo{
@@ -78,7 +78,7 @@ a:focus {
 
 #navbar-search-input:focus {
     outline: none;
-    background-color: #9AE19E; 
+    background-color: #9AE19E;
 }
 
 #navbar-search-button {
@@ -129,6 +129,11 @@ a:focus {
 .profile-content .profile-name {
     font-family: 'Fredoka One';
     text-align: left;
+}
+
+.profile-content .profile-type {
+    font-family: 'Fredoka One';
+    text-align: right;
 }
 
 .profile-content .photo-container {
