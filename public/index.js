@@ -49,7 +49,8 @@ function handleModalAcceptClick() {
       var requestBody = JSON.stringify({
         name: profileName,
         photoURL: profilePhoto,
-        description: profileDescription
+        description: profileDescription,
+        hearts: 0
       });
 
       request.addEventListener('load', function (event) {
@@ -63,6 +64,7 @@ function handleModalAcceptClick() {
           });
           var profileContainer = document.querySelector('.profile-container');
           profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
+          hideCreateProfileModal();
         } else {
           alert("Error storing photo: " + event.target.response);
         }
@@ -71,22 +73,54 @@ function handleModalAcceptClick() {
 
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
-      //^^
 
       clearSearchAndReinsertProfiles();
+
+      //hideCreateProfileModal();
   
+    } 
+    else if(profileName) {
+      var request = new XMLHttpRequest();
+      //var name = getNameFromURL();
+      //var url = "/lizards/" + profileName + "/removeProfile";
+      var url = "/lizards/removeProfile";
+      request.open("POST", url);
+
+      var requestBody = JSON.stringify({
+        name: profileName,
+        photoURL: profilePhoto,
+        description: profileDescription,
+        hearts: 0
+      });
+
+      request.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+          //var profileTemplate = Handlebars.templates.profile;
+          console.log("Profile Deleted");
+          //remove profile from client side
+        } 
+        else {
+          alert("Error deleting profile");
+        }
+        });
+
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.send(requestBody);
+
+      clearSearchAndReinsertProfiles();
+
       hideCreateProfileModal();
+    }
+    else {
   
-    } else {
-  
-      alert('You must specify your name, description, and provide a photo for your profile.');
+      alert('You must specify your name, description, and provide a photo for your profile, or provide just the name to delete a profile.');
   
     }
 }
 
-//test below
+/*
 function handleDeleteProfileClick() {
-  
+
   var request = new XMLHttpRequest();
   var name = getNameFromURL();
   var url = "/lizards/" + name + "/deleteProfile";
@@ -94,7 +128,6 @@ function handleDeleteProfileClick() {
 
   var requestBody = JSON.stringify({
     name: name,
-    caption: caption
   });
 
   request.addEventListener('load', function (event) {
@@ -117,7 +150,7 @@ function handleDeleteProfileClick() {
     hideModal();
 
 }
-//test above
+//test above*/
 
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
@@ -210,7 +243,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     var deleteProfileButton = document.getElementById('delete-profile-button');
     if(deleteProfileButton) {
-      deleteProfileButton.addEventListener('click', handleDeleteProfileClick); //make handle function
+      //deleteProfileButton.addEventListener('click', handleDeleteProfileClick); //make handle function
     }
 
     //add event listener for heart button?

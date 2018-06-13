@@ -75,10 +75,10 @@ app.post('/lizards/addProfile', function (req, res, next) {
 });
 
 //below this is not finished
-app.post('/lizards/:lizard/removeProfile', function (req, res, next) {
-  var lizard = req.params.lizard.toLowerCase();
+app.post('/lizards/removeProfile', function (req, res, next) {
+  //var lizard = req.params.lizard.toLowerCase();
   var lizardCollection = mongoDB.collection('lizard');
-  var myquery = { name: lizard }
+  var myquery = { name: req.body.name }
   lizardCollection.deleteOne(myquery, function (err, result) {
     if (err) {
       res.status(500).send("Error deleting profile in DB.")
@@ -96,7 +96,7 @@ app.post('/lizards/:lizard/removeProfile', function (req, res, next) {
 //above this is not finished
 //still need hearts functionality and delete functionality
 
-app.use('*', function(req, res){
+app.get('*', function(req, res){
   res.status(404).render('404');
 });
 
