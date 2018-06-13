@@ -124,11 +124,24 @@ a:focus {
     margin: 0;
 }
 
+.title-content{
+    display: flex;
+}
+
 .profile-content .profile-name {
     font-family: 'Fredoka One';
     text-align: left;
 }
 
+#delete-profile-button{
+    background-color: #56A3A6;
+    border: none;
+    color: black;
+    width: 30px;
+    cursor: pointer;
+    /* position: relative; */
+    /* right: 10px; */
+}
 
 .profile-content .photo-container {
     margin-top: 8px;
@@ -147,18 +160,15 @@ a:focus {
     font-weight: bold;
 }
 
-#delete-profile-button{
-    background-color: #56A3A6;
-    border: none;
-    color: black;
-    width: 30px;
-    cursor: pointer;
-    /* position: relative; */
-    /* right: 10px; */
-}
 
 .heart-content{
-    display: inline-block;
+    display: flex;
+}
+
+.hearts{
+    font-family: "Fredoka-One";
+    font-weight: bold;
+    margin: 10px;
 }
 
 #like-button{
