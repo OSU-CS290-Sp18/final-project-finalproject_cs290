@@ -43,7 +43,6 @@ app.get('/lizards', function (req, res, next){
   });
 });
 
-//below this is not finished
 app.post('/lizards/addProfile', function (req, res, next) {
   if (req.body && req.body.name && req.body.photoURL && req.body.description) {
     console.log(req.body.name);
@@ -74,10 +73,37 @@ app.post('/lizards/addProfile', function (req, res, next) {
     res.status(400).send("Request needs a JSON body with caption and photoURL.")
   }
 });
+//below this is not finished
+app.post('/lizards/:lizard/removeProfile', function (req, res, next) {
+  var lizard = req.params.lizard.toLowerCase();
+  /*
+  if (req.body && req.body.name && req.body.photoURL && req.body.description) {
+    var profile = {
+      name: req.body.name,
+      photoURL: req.body.photoURL,
+      description: req.body.description
+    };
+    */
+    var lizardCollection = mongoDB.collection('lizard');
+    var myquery = { name: lizard}
+    lizardCollection.deleteOne(myquery, function (err, result) {
+      if (err) {
+        res.status(500).send("Error inserting photo into DB.")
+      } 
+      else {
+        console.log("== mongo insert result:", result);
+        if (result.matchedCount > 0) {
+          res.status(200).end();
+        } else {
+          next();
+        }
+      }
+    });
+});
 //above this is not finished
 //still need hearts functionality and delete functionality
 
-app.get('*', function(req, res){
+app.use('*', function(req, res){
   res.status(404).render('404');
 });
 
