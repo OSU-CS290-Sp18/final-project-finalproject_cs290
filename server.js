@@ -78,8 +78,13 @@ app.post('/lizards/addProfile', function (req, res, next) {
 app.post('/lizards/removeProfile', function (req, res, next) {
   //var lizard = req.params.lizard.toLowerCase();
   var lizardCollection = mongoDB.collection('lizard');
-  var myquery = { name: req.body.name }
-  lizardCollection.deleteOne(myquery, function (err, result) {
+  var profile = {
+    name: req.body.name,
+    photoURL: req.body.photoURL,
+    description: req.body.description,
+    hearts: 0
+  };
+  lizardCollection.deleteOne(profile, function (err, result) {
     if (err) {
       res.status(500).send("Error deleting profile in DB.")
     } 

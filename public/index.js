@@ -88,9 +88,6 @@ function handleModalAcceptClick() {
 
       var requestBody = JSON.stringify({
         name: profileName,
-        photoURL: profilePhoto,
-        description: profileDescription,
-        hearts: 0
       });
 
       request.addEventListener('load', function (event) {
