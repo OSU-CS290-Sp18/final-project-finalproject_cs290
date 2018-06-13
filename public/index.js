@@ -38,10 +38,9 @@ function handleModalAcceptClick() {
         name: profileName,
         photoURL: profilePhoto,
         description: profileDescription
-      });
-      this works ^^ */
+      });*/
+
       console.log("add is called");
-      //my attempt at mongodb
       var request = new XMLHttpRequest();
       var url = "/lizards/addProfile";
       request.open("POST", url);
@@ -53,6 +52,7 @@ function handleModalAcceptClick() {
         hearts: 0
       });
 
+      /*
       request.addEventListener('load', function (event) {
         if (event.target.status === 200) {
           var profileTemplate = Handlebars.templates.profile;
@@ -69,7 +69,7 @@ function handleModalAcceptClick() {
           alert("Error storing photo: " + event.target.response);
         }
       });
-      //dont know why this event listener is here or what it does ^^^^^^^^^^
+      */
 
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
@@ -91,6 +91,7 @@ function handleModalAcceptClick() {
         name: profileName,
       });
       console.log(requestBody);//correct
+      /*
       request.addEventListener('load', function (event) {
         console.log(event.target.status);
         if (event.target.status === 200) {
@@ -103,7 +104,7 @@ function handleModalAcceptClick() {
           alert("Error deleting profile");
         }
         });
-
+        */
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);//fails here
 
@@ -117,40 +118,6 @@ function handleModalAcceptClick() {
   
     }
 }
-
-/*
-function handleDeleteProfileClick() {
-
-  var request = new XMLHttpRequest();
-  var name = getNameFromURL();
-  var url = "/lizards/" + name + "/deleteProfile";
-  request.open("POST", url);
-
-  var requestBody = JSON.stringify({
-    name: name,
-  });
-
-  request.addEventListener('load', function (event) {
-    if (event.target.status === 200) {
-      var photoCardTemplate = Handlebars.templates.photoCard;
-      var newPhotoCardHTML = photoCardTemplate({
-        photoURL: photoURL,
-        caption: caption
-      });
-      var photoCardContainer = document.querySelector('.photo-card-container');
-      photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
-    } else {
-      alert("Error storing photo: " + event.target.response);
-    }
-  });
-
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.send(requestBody);
-
-    hideModal();
-
-}
-//test above*/
 
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
@@ -200,7 +167,7 @@ function profileMatchesSearch(profile, searchQuery) {
 
 function doSearchUpdate() {
     /*
-     * Grab the search query from the navbar search box.
+      Grab the search query from the navbar search box.
      */
     var searchQuery = document.getElementById('navbar-search-input').value;
   
@@ -240,12 +207,6 @@ function parseProfile(profileElem) {
 window.addEventListener('DOMContentLoaded', function () {
 
     //add event listener for delete button
-
-    var deleteProfileButton = document.getElementById('delete-profile-button');
-    if(deleteProfileButton) {
-      //deleteProfileButton.addEventListener('click', handleDeleteProfileClick); //make handle function
-    }
-
     //add event listener for heart button?
 
     var profileElems = document.getElementsByClassName('profile');

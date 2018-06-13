@@ -74,7 +74,6 @@ app.post('/lizards/addProfile', function (req, res, next) {
   }
 });
 
-//below this is not finished
 app.post('/lizards/removeProfile', function (req, res, next) {
   if (req.body.name) {
     console.log(req.body.name);
@@ -100,8 +99,6 @@ app.post('/lizards/removeProfile', function (req, res, next) {
     res.status(400).send("Request needs a JSON body with name.")
   }
 });
-//above this is not finished
-//still need hearts functionality and delete functionality
 
 app.get('*', function(req, res){
   res.status(404).render('404');
