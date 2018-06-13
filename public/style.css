@@ -137,8 +137,10 @@ a:focus {
     background-color: #56A3A6;
     border: none;
     color: black;
-    width: 30px;
+    width: 75%;
+    justify-content: right;
     cursor: pointer;
+    
     /* position: relative; */
     /* right: 10px; */
 }
@@ -155,7 +157,6 @@ a:focus {
 }
 
 .profile-content .profile-description{
-    margin-top: 10px;
     font-family: "Handlee";
     font-weight: bold;
 }
@@ -168,7 +169,8 @@ a:focus {
 .hearts{
     font-family: "Fredoka-One";
     font-weight: bold;
-    margin: 10px;
+    margin: 5px 10px;
+    font-size: 20px;
 }
 
 #like-button{
@@ -179,9 +181,6 @@ a:focus {
     height: 30px;
     border-radius: 15px;
     cursor: pointer;
-    margin: 10px 0 0 0;
-    position: relative;
-    bottom: -10px;
 }
 
 #like-button:hover{
