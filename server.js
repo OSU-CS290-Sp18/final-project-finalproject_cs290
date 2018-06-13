@@ -57,13 +57,9 @@ app.post('/lizards/addProfile', function (req, res, next) {
           res.status(500).send("Error inserting photo into DB.")
         } else {
           console.log("== mongo insert result:", result);
-          //if (result.matchedCount > 0) {
-          //  res.status(200).end();
-          //} else {
-          //  next();
-          //}
         }
       };
+      res.redirect('/lizards');
   }
   else {
     res.status(400).send("Request needs a JSON body with caption and photoURL.")
