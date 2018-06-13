@@ -64,7 +64,7 @@ function handleModalAcceptClick() {
           });
           var profileContainer = document.querySelector('.profile-container');
           profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
-          hideCreateProfileModal();
+          //hideCreateProfileModal();
         } else {
           alert("Error storing photo: " + event.target.response);
         }
@@ -76,7 +76,7 @@ function handleModalAcceptClick() {
 
       clearSearchAndReinsertProfiles();
 
-      //hideCreateProfileModal();
+      hideCreateProfileModal();
   
     } 
     else if(profileName) {
@@ -85,11 +85,12 @@ function handleModalAcceptClick() {
       //var url = "/lizards/" + profileName + "/removeProfile";
       var url = "/lizards/removeProfile";
       request.open("POST", url);
-
+      console.log(url);//correct
+      console.log(profileName);//correct
       var requestBody = JSON.stringify({
         name: profileName,
       });
-
+      console.log(requestBody);
       request.addEventListener('load', function (event) {
         if (event.target.status === 200) {
           //var profileTemplate = Handlebars.templates.profile;
@@ -97,12 +98,13 @@ function handleModalAcceptClick() {
           //remove profile from client side
         } 
         else {
+          console.log(event.target.status);//correct
           alert("Error deleting profile");
         }
         });
 
       request.setRequestHeader('Content-Type', 'application/json');
-      request.send(requestBody);
+      request.send(requestBody);//fails here
 
       clearSearchAndReinsertProfiles();
 

@@ -78,26 +78,25 @@ app.post('/lizards/addProfile', function (req, res, next) {
 app.post('/lizards/removeProfile', function (req, res, next) {
   //var lizard = req.params.lizard.toLowerCase();
   var lizardCollection = mongoDB.collection('lizard');
+  console.log(req.body.name);
   var profile = {
     name: req.body.name,
-    photoURL: req.body.photoURL,
-    description: req.body.description,
-    hearts: 0
   };
-  lizardCollection.deleteOne(profile, function (err, result) {
-    if (err) {
-      res.status(500).send("Error deleting profile in DB.")
-    } 
-    else {
-      console.log("== mongo delete result:", result);
-      if (result.matchedCount > 0) {
-        res.status(200).end();
-      } else {
-        next();
+  lizardCollection.deleteOne(profile, 
+    function (err, result) {
+      if (err) {
+        res.status(500).send("Error deleting profile in DB.")
+      } 
+      else {
+        console.log("== mongo delete result:", result);
+        if (result.matchedCount > 0) {
+          res.status(200).end();
+        } else {
+          next();
+        }
       }
-    }
+    });
   });
-});
 //above this is not finished
 //still need hearts functionality and delete functionality
 
