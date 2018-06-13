@@ -146,15 +146,19 @@ a:focus {
     font-family: "Handlee";
     font-weight: bold;
 }
+
 #delete-profile-button{
     background-color: #56A3A6;
     border: none;
     color: black;
     width: 30px;
     cursor: pointer;
-    position: relative;
-    top: 10px;
-    right: 10px;
+    /* position: relative; */
+    /* right: 10px; */
+}
+
+.heart-content{
+    display: inline-block;
 }
 
 #like-button{
