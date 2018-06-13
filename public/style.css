@@ -343,7 +343,7 @@ a:focus {
 }
 
 .profile-input-element textarea {
-    min-height: 64px;
+    min-height: 23px;
 }
 
 .modal-footer {

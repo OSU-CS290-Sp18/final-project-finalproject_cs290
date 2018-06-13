@@ -261,6 +261,9 @@ function parseProfile(profileElem) {
     var profilePhoto = profileElem.querySelector('.profile-photo');
     profile.photoURL = profilePhoto.src;
 
+    var profileHearts = profileElem.querySelector('.hearts');
+    profile.hearts = profileHearts.textContent.trim();
+
     return profile;
 }
 
