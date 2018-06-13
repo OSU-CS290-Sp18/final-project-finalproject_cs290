@@ -77,20 +77,16 @@ function handleModalAcceptClick() {
       clearSearchAndReinsertProfiles();
 
       hideCreateProfileModal();
-  
-    } 
+    }
     else if(profileName) {
       var request = new XMLHttpRequest();
       //var name = getNameFromURL();
       //var url = "/lizards/" + profileName + "/removeProfile";
       var url = "/lizards/removeProfile";
       request.open("POST", url);
-      console.log(url);//correct
-      console.log(profileName);//correct
       var requestBody = JSON.stringify({
         name: profileName,
       });
-      console.log(requestBody);//correct
       /*
       request.addEventListener('load', function (event) {
         console.log(event.target.status);
