@@ -84,6 +84,41 @@ function handleModalAcceptClick() {
     }
 }
 
+//test below
+function handleDeleteProfileClick() {
+  
+  var request = new XMLHttpRequest();
+  var name = getNameFromURL();
+  var url = "/lizards/" + name + "/deleteProfile";
+  request.open("POST", url);
+
+  var requestBody = JSON.stringify({
+    name: name,
+    caption: caption
+  });
+
+  request.addEventListener('load', function (event) {
+    if (event.target.status === 200) {
+      var photoCardTemplate = Handlebars.templates.photoCard;
+      var newPhotoCardHTML = photoCardTemplate({
+        photoURL: photoURL,
+        caption: caption
+      });
+      var photoCardContainer = document.querySelector('.photo-card-container');
+      photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
+    } else {
+      alert("Error storing photo: " + event.target.response);
+    }
+  });
+
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(requestBody);
+
+    hideModal();
+
+}
+//test above
+
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
     doSearchUpdate();
@@ -160,7 +195,6 @@ function parseProfile(profileElem) {
     var profileName = profileElem.querySelector('.profile-name');
     profile.name = profileName.textContent.trim();
   
-    // var profilePhoto = profileElem.querySelector('.profile-photo a');
     var profilePhoto = profileElem.querySelector('.profile-photo');
     profile.photoURL = profilePhoto.src;
 
@@ -171,6 +205,15 @@ function parseProfile(profileElem) {
  * Wait until the DOM content is loaded, and then hook up UI interactions, etc.
  */
 window.addEventListener('DOMContentLoaded', function () {
+
+    //add event listener for delete button
+
+    var deleteProfileButton = document.getElementById('delete-profile-button');
+    if(deleteProfileButton) {
+      deleteProfileButton.addEventListener('click', handleDeleteProfileClick); //make handle function
+    }
+
+    //add event listener for heart button?
 
     var profileElems = document.getElementsByClassName('profile');
     for (var i = 0; i < profileElems.length; i++) {

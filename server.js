@@ -78,13 +78,13 @@ app.post('/lizards/addProfile', function (req, res, next) {
 app.post('/lizards/:lizard/removeProfile', function (req, res, next) {
   var lizard = req.params.lizard.toLowerCase();
   var lizardCollection = mongoDB.collection('lizard');
-  var myquery = { name: lizard}
+  var myquery = { name: lizard }
   lizardCollection.deleteOne(myquery, function (err, result) {
     if (err) {
-      res.status(500).send("Error inserting photo into DB.")
+      res.status(500).send("Error deleting profile in DB.")
     } 
     else {
-      console.log("== mongo insert result:", result);
+      console.log("== mongo delete result:", result);
       if (result.matchedCount > 0) {
         res.status(200).end();
       } else {
