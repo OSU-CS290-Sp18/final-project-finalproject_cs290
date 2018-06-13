@@ -67,7 +67,8 @@ function handleModalAcceptClick() {
           alert("Error storing photo: " + event.target.response);
         }
       });
-  
+      //dont know why this event listener is here or what it does ^^^^^^^^^^
+
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
       //^^
