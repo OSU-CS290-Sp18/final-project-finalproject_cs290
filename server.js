@@ -58,7 +58,7 @@ app.get('/lizards/:lizard', function (req, res, next) {
   });
 });
 
-app.post('/people/:person/addPhoto', function (req, res, next) {
+app.post('/lizards/:lizard/addProfile', function (req, res, next) {
   var lizard = req.params.lizard.toLowerCase();
   if (req.body && req.body.name && req.body.photoURL && req.body.description) {
     var profile = {
