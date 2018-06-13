@@ -32,16 +32,8 @@ function handleModalAcceptClick() {
     var profileDescription = document.getElementById('profile-description-input').value;
     var profileName = document.getElementById('profile-name-input').value;
     var profilePhoto = document.getElementById('profile-photo-input').value;
-    console.log(profileDescription);
-    console.log(profileName);
-    console.log(profilePhoto);
+
     if (profileDescription && profileName && profilePhoto) {
-      /*
-      allProfiles.push({
-        name: profileName,
-        photoURL: profilePhoto,
-        description: profileDescription
-      });*/
 
       var request = new XMLHttpRequest();
       var url = "/lizards/addProfile";
@@ -78,9 +70,7 @@ function handleModalAcceptClick() {
 
     }
     else {
-
       alert('You must specify your name, description, and provide a photo for your profile.');
-
     }
 }
 
@@ -97,20 +87,18 @@ function handleModalDeleteClick() {
       var requestBody = JSON.stringify({
         name: profileName,
       });
-  
+
       request.addEventListener('load', function (event) {
         console.log(event.target.status);
         if (event.target.status === 200) {
-          //var profileTemplate = Handlebars.templates.profile;
           console.log("Profile Deleted");
-          //remove profile from client side
         }
         else {
           console.log(event.target.status);//correct
           alert("Error deleting profile");
         }
         });
-  
+
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);//fails here
 
@@ -124,41 +112,6 @@ function handleModalDeleteClick() {
 
     }
 }
-
-
-/*
-function handleDeleteProfileClick() {
-
-  var request = new XMLHttpRequest();
-  var name = getNameFromURL();
-  var url = "/lizards/" + name + "/deleteProfile";
-  request.open("POST", url);
-
-  var requestBody = JSON.stringify({
-    name: name,
-  });
-
-  request.addEventListener('load', function (event) {
-    if (event.target.status === 200) {
-      var photoCardTemplate = Handlebars.templates.photoCard;
-      var newPhotoCardHTML = photoCardTemplate({
-        photoURL: photoURL,
-        caption: caption
-      });
-      var photoCardContainer = document.querySelector('.photo-card-container');
-      photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
-    } else {
-      alert("Error storing photo: " + event.target.response);
-    }
-  });
-
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.send(requestBody);
-
-    hideModal();
-
-}
-//test above*/
 
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
@@ -271,9 +224,6 @@ function parseProfile(profileElem) {
  * Wait until the DOM content is loaded, and then hook up UI interactions, etc.
  */
 window.addEventListener('DOMContentLoaded', function () {
-
-    //add event listener for delete button
-    //add event listener for heart button?
 
     var profileElems = document.getElementsByClassName('profile');
     for (var i = 0; i < profileElems.length; i++) {

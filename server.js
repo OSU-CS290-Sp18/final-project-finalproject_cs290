@@ -57,11 +57,11 @@ app.post('/lizards/addProfile', function (req, res, next) {
           res.status(500).send("Error inserting photo into DB.")
         } else {
           console.log("== mongo insert result:", result);
-          if (result.matchedCount > 0) {
-            res.status(200).end();
-          } else {
-            next();
-          }
+          //if (result.matchedCount > 0) {
+          //  res.status(200).end();
+          //} else {
+          //  next();
+          //}
         }
       };
   }

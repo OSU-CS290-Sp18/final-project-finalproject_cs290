@@ -137,12 +137,7 @@ a:focus {
     background-color: rgb(0,0,0,0);
     border: none;
     color: black;
-    /* width: 75%; */
-    /* justify-content: right; */
     cursor: pointer;
-
-    /* position: relative; */
-    /* right: 10px; */
 }
 
 .profile-content .photo-container {
@@ -225,7 +220,6 @@ a:focus {
     left: 0;
     right: 0;
     z-index: 1000;
-    /* background-color: rgba(0, 0, 0, 0.85); */
     background-color: black;
     background-image: url("https://i.imgur.com/WNhdchv.png");
     background-size: 60px;
