@@ -10,13 +10,14 @@ function getnameFromURL() {
 }
 //^^
 
-function insertNewProfile(profileDescription, profileName, profilePhoto) {
+function insertNewProfile(profileDescription, profileName, profilePhoto, profileHearts) {
     var profileTemplate = Handlebars.templates.profile;
   
     var newProfileHTML = profileTemplate({
         name: profileName,
         photoURL: profilePhoto,
         description: profileDescription,
+        hearts: profileHearts
     });
   
     var profileContainer = document.querySelector('.profile-container');
@@ -168,7 +169,7 @@ function doSearchUpdate() {
   
     allProfiles.forEach(function (profile) {
       if (profileMatchesSearch(profile, searchQuery)) {
-        insertNewProfile(profile.description, profile.name, profile.photoURL);
+        insertNewProfile(profile.description, profile.name, profile.photoURL, profile.hearts);
       }
     });
 }
