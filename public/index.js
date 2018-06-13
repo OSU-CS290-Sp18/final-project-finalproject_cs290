@@ -22,7 +22,6 @@ function insertNewProfile(profileDescription, profileName, profilePhoto) {
     var profileContainer = document.querySelector('.profile-container');
     profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
     hideCreateProfileModal();
-
 }
 
 var allProfiles = [];
@@ -34,13 +33,14 @@ function handleModalAcceptClick() {
     var profilePhoto = document.getElementById('profile-photo-input').value;
   
     if (profileDescription && profileName && profilePhoto) {
-  
+      /*
       allProfiles.push({
         name: profileName,
         photoURL: profilePhoto,
         description: profileDescription
       });
-  
+      this works ^^ */
+      
       //my attempt at mongodb
       var request = new XMLHttpRequest();
       var name = getnameFromURL();
