@@ -1,6 +1,6 @@
 <article class="profile">
-    <button type="button" id="delete-profile-button"><i class="fas fa-times"></i></button>
     <div class="profile-content">
+        <button type="button" id="delete-profile-button"><i class="fas fa-times"></i></button>
         <p class = "profile-name">
             {{name}}
         </p>
@@ -11,8 +11,10 @@
             {{description}}
         </p>
     </div>
-    <button type="button" id="like-button"><i class="fas fa-heart"></i></button>
-    <p class = "hearts">
-        {{hearts}}
-    </p>
+    <div class = "heart-content">
+        <button type="button" id="like-button"><i class="fas fa-heart"></i></button>
+        <p class = "hearts">
+            {{hearts}}
+        </p>
+    </div>
 </article>
