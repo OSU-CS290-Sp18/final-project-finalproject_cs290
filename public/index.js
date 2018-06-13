@@ -1,4 +1,14 @@
-// var profileTemplate = '../views/partials/profile';
+//more mongodb attempts
+function getnameFromURL() {
+  var path = window.location.pathname;
+  var pathParts = path.split('/');
+  if (pathParts[1] === "lizards") {
+    return pathParts[2];
+  } else {
+    return null;
+  }
+}
+//^^
 
 function insertNewProfile(profileDescription, profileName, profilePhoto) {
     var profileTemplate = Handlebars.templates.profile;
@@ -31,6 +41,37 @@ function handleModalAcceptClick() {
         description: profileDescription
       });
   
+      //my attempt at mongodb
+      var request = new XMLHttpRequest();
+      var name = getnameFromURL();
+      var url = "/lizards/" + name + "/addProfile";
+      request.open("POST", url);
+  
+      var requestBody = JSON.stringify({
+        name: name,
+        photoURL: photoURL,
+        description: description
+      });
+
+      request.addEventListener('load', function (event) {
+        if (event.target.status === 200) {
+          var profileTemplate = Handlebars.templates.profile;
+          var newProfileHTML = profileTemplate({
+            name: name,
+            photoURL: photoURL,
+            description: description
+          });
+          var profileContainer = document.querySelector('.profile-container');
+          profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
+        } else {
+          alert("Error storing photo: " + event.target.response);
+        }
+      });
+  
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.send(requestBody);
+      //^^
+
       clearSearchAndReinsertProfiles();
   
       hideCreateProfileModal();
