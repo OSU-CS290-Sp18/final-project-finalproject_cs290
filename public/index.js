@@ -75,10 +75,6 @@ function handleModalAcceptClick() {
 
       clearSearchAndReinsertProfiles();
       hideCreateProfileModal();
-<<<<<<< HEAD
-    }
-    else if(profileName) {
-=======
 
     }
     else {
@@ -93,7 +89,6 @@ function handleModalDeleteClick() {
     var profileName = document.getElementById('profile-delete-input').value;
 
     if(profileName) {
->>>>>>> 18eec2d1a5b68d3cd07e368900749ff908da59fe
       var request = new XMLHttpRequest();
       //var name = getNameFromURL();
       //var url = "/lizards/" + profileName + "/removeProfile";
@@ -120,15 +115,6 @@ function handleModalDeleteClick() {
       request.send(requestBody);//fails here
 
       clearSearchAndReinsertProfiles();
-<<<<<<< HEAD
-      hideCreateProfileModal();
-    }
-    else {
-      alert('You must specify your name, description, and provide a photo for your profile, or provide just the name to delete a profile.');
-    }
-}
-
-=======
 
       hideDeleteProfileModal();
     }
@@ -174,7 +160,6 @@ function handleDeleteProfileClick() {
 }
 //test above*/
 
->>>>>>> 18eec2d1a5b68d3cd07e368900749ff908da59fe
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
     doSearchUpdate();
