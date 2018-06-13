@@ -150,11 +150,8 @@ a:focus {
     background-color: #56A3A6;
     border: none;
     color: black;
-    /* width: 30px; */
-    /* height: 30px; */
-    /* border-radius: 15px; */
+    width: 30px;
     cursor: pointer;
-    margin: 10px 0 0 0;
     position: relative;
     top: 10px;
     right: 10px;
