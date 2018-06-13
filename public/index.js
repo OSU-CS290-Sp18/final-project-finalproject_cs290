@@ -40,7 +40,6 @@ function handleModalAcceptClick() {
         description: profileDescription
       });*/
 
-      console.log("add is called");
       var request = new XMLHttpRequest();
       var url = "/lizards/addProfile";
       request.open("POST", url);
@@ -52,7 +51,6 @@ function handleModalAcceptClick() {
         hearts: 0
       });
 
-      /*
       request.addEventListener('load', function (event) {
         if (event.target.status === 200) {
           var profileTemplate = Handlebars.templates.profile;
@@ -64,18 +62,15 @@ function handleModalAcceptClick() {
           });
           var profileContainer = document.querySelector('.profile-container');
           profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
-          //hideCreateProfileModal();
         } else {
           alert("Error storing photo: " + event.target.response);
         }
       });
-      */
 
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
 
       clearSearchAndReinsertProfiles();
-
       hideCreateProfileModal();
     }
     else if(profileName) {
@@ -87,7 +82,7 @@ function handleModalAcceptClick() {
       var requestBody = JSON.stringify({
         name: profileName,
       });
-      /*
+  
       request.addEventListener('load', function (event) {
         console.log(event.target.status);
         if (event.target.status === 200) {
@@ -100,18 +95,15 @@ function handleModalAcceptClick() {
           alert("Error deleting profile");
         }
         });
-        */
+  
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);//fails here
 
       clearSearchAndReinsertProfiles();
-
       hideCreateProfileModal();
     }
     else {
-  
       alert('You must specify your name, description, and provide a photo for your profile, or provide just the name to delete a profile.');
-  
     }
 }
 
