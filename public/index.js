@@ -1,4 +1,4 @@
-//more mongodb attempts
+//mongodb getting name for post url
 function getnameFromURL() {
   var path = window.location.pathname;
   var pathParts = path.split('/');
@@ -40,26 +40,26 @@ function handleModalAcceptClick() {
         description: profileDescription
       });
       this works ^^ */
-      
+
       //my attempt at mongodb
       var request = new XMLHttpRequest();
-      var name = getnameFromURL();
-      var url = "/lizards/" + name + "/addProfile";
+      var url = "/lizards/addProfile";
       request.open("POST", url);
   
       var requestBody = JSON.stringify({
-        name: name,
-        photoURL: photoURL,
-        description: description
+        name: profileName,
+        photoURL: profilePhoto,
+        description: profileDescription
       });
 
       request.addEventListener('load', function (event) {
         if (event.target.status === 200) {
           var profileTemplate = Handlebars.templates.profile;
           var newProfileHTML = profileTemplate({
-            name: name,
-            photoURL: photoURL,
-            description: description
+            name: profileName,
+            photoURL: profilePhoto,
+            description: profileDescription,
+            hearts: 0
           });
           var profileContainer = document.querySelector('.profile-container');
           profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);

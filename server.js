@@ -44,32 +44,19 @@ app.get('/lizards', function (req, res, next){
 });
 
 //below this is not finished
-app.get('/lizards/:lizard', function (req, res, next) {
-  var lizard = req.params.lizard.toLowerCase();
-  var lizardsCollection = mongoDB.collection('lizards');
-  lizardsCollection.find({ name: lizard }).toArray(function (err, lizardDocs) {
-    if (err) {
-      res.status(500).send("Error fetching lizard from DB.");
-    } else if (lizardDocs.length > 0) {
-      res.status(200).render('lizardPage', lizardDocs[0]);
-    } else {
-      next();
-    }
-  });
-});
-
-app.post('/lizards/:lizard/addProfile', function (req, res, next) {
-  var lizard = req.params.lizard.toLowerCase();
+app.post('/lizards/addProfile', function (req, res, next) {
   if (req.body && req.body.name && req.body.photoURL && req.body.description) {
+    console.log(req.body.name);
+    console.log(req.body.photoURL);
+    console.log(req.body.description);
     var profile = {
       name: req.body.name,
       photoURL: req.body.photoURL,
-      description: req.body.description
+      description: req.body.description,
+      hearts: 0
     };
     var lizardsCollection = mongoDB.collection('lizards');
-    lizardsCollection.updateOne(
-      { name: lizard }, //may need lizard_id to work instead of name
-      { $push: { profile } },
+    lizardsCollection.insertOne(profile),
       function (err, result) {
         if (err) {
           res.status(500).send("Error inserting photo into DB.")
@@ -81,9 +68,9 @@ app.post('/lizards/:lizard/addProfile', function (req, res, next) {
             next();
           }
         }
-      }
-    );
-  } else {
+      };
+  }
+  else {
     res.status(400).send("Request needs a JSON body with caption and photoURL.")
   }
 });
