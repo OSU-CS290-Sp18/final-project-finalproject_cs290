@@ -12,7 +12,7 @@ var mongoDBName = process.env.MONGO_DB_NAME;
 
 var mongoURL = "mongodb://" + mongoUsername + ":" + mongoPassword + "@" + mongoHost + ":" + mongoPort + "/" + mongoDBName;
 
-console.log("==MongoDB URL:", mongoURL); 
+console.log("==MongoDB URL:", mongoURL);
 
 var mongoDB = null;
 
@@ -25,10 +25,6 @@ app.set('view engine', 'handlebars');
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
-
-app.get('/', function (req, res, next){
-   res.status(200).render('lizardPage');
- });
 
 app.get('/lizards', function (req, res, next){
   var profileCollection = mongoDB.collection('lizards');
@@ -99,6 +95,10 @@ app.post('/lizards/removeProfile', function (req, res, next) {
     res.status(400).send("Request needs a JSON body with name.")
   }
 });
+
+app.get('/snakes', function(req, res){
+  res.status(404).render('snakes');
+})
 
 app.get('*', function(req, res){
   res.status(404).render('404');
