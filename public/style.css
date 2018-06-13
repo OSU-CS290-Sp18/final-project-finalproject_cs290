@@ -140,7 +140,7 @@ a:focus {
     /* width: 75%; */
     /* justify-content: right; */
     cursor: pointer;
-    
+
     /* position: relative; */
     /* right: 10px; */
 }
@@ -233,6 +233,43 @@ a:focus {
 }
 
 #create-profile-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1010;
+    overflow: scroll;
+
+}
+
+#delete-profile-button {
+    position: absolute;
+    right: 80px;
+    top: 25px;
+    height: 60px;
+    width: 60px;
+    border: none;
+    border-radius: 30px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #46C94E;
+    background-color: #073B3A;
+    box-shadow: none;
+}
+
+#delete-profile-button:hover,
+#delete-profile-button:focus {
+    color: #073B3A;
+    background-color: #46C94E;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+#delete-profile-button:focus {
+    outline: none;
+}
+
+#delete-profile-modal {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -344,6 +381,27 @@ a:focus {
 }
 
 .modal-footer .modal-accept-button:focus {
+    outline: none;
+}
+
+.modal-footer .modal-delete-button {
+    background-color: #073B3A;
+    color: #fff;
+}
+
+.modal-footer .modal-delete-button:hover {
+    background-color: #46C94E;
+}
+
+.modal-footer .modal-delete-button:focus {
+    outline: none;
+}
+
+.modal-footer .delete-cancel-button:hover {
+    background-color: #46C94E;
+}
+
+.modal-footer .delete-cancel-button:focus {
     outline: none;
 }
 
