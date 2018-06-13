@@ -43,6 +43,53 @@ app.get('/lizards', function (req, res, next){
   });
 });
 
+//below this is not finished
+app.get('/lizards/:lizard', function (req, res, next) {
+  var lizard = req.params.lizard.toLowerCase();
+  var lizardsCollection = mongoDB.collection('lizards');
+  lizardsCollection.find({ name: lizard }).toArray(function (err, lizardDocs) {
+    if (err) {
+      res.status(500).send("Error fetching lizard from DB.");
+    } else if (lizardDocs.length > 0) {
+      res.status(200).render('lizardPage', lizardDocs[0]);
+    } else {
+      next();
+    }
+  });
+});
+
+app.post('/people/:person/addPhoto', function (req, res, next) {
+  var lizard = req.params.lizard.toLowerCase();
+  if (req.body && req.body.name && req.body.photoURL && req.body.description) {
+    var profile = {
+      name: req.body.name,
+      photoURL: req.body.photoURL,
+      description: req.body.description
+    };
+    var lizardsCollection = mongoDB.collection('lizards');
+    lizardsCollection.updateOne(
+      { name: lizard }, //may need lizard_id to work instead of name
+      { $push: { profile } },
+      function (err, result) {
+        if (err) {
+          res.status(500).send("Error inserting photo into DB.")
+        } else {
+          console.log("== mongo insert result:", result);
+          if (result.matchedCount > 0) {
+            res.status(200).end();
+          } else {
+            next();
+          }
+        }
+      }
+    );
+  } else {
+    res.status(400).send("Request needs a JSON body with caption and photoURL.")
+  }
+});
+//above this is not finished
+//still need hearts functionality and delete functionality
+
 app.get('*', function(req, res){
   res.status(404).render('404');
 });
