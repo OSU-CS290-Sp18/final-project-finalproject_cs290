@@ -39,7 +39,6 @@ app.get('/lizards', function (req, res, next){
   });
 });
 
-//below this is not finished
 app.post('/lizards/addProfile', function (req, res, next) {
   if (req.body && req.body.name && req.body.photoURL && req.body.description) {
     console.log(req.body.name);
@@ -68,6 +67,33 @@ app.post('/lizards/addProfile', function (req, res, next) {
   }
   else {
     res.status(400).send("Request needs a JSON body with caption and photoURL.")
+  }
+});
+
+//below this is not finished
+app.post('/lizards/removeProfile', function (req, res, next) {
+  if (req.body.name) {
+    console.log(req.body.name);
+    var profile = {
+      name: req.body.name,
+    };
+    var lizardsCollection = mongoDB.collection('lizards');
+    lizardsCollection.deleteOne(profile),
+      function (err, result) {
+        if (err) {
+          res.status(500).send("Error deleting photo into DB.")
+        } else {
+          console.log("== mongo delete result:", result);
+          if (result.matchedCount > 0) {
+            res.status(200).end();
+          } else {
+            next();
+          }
+        }
+      };
+  }
+  else {
+    res.status(400).send("Request needs a JSON body with name.")
   }
 });
 //above this is not finished

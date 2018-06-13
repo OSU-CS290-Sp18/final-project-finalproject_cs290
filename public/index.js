@@ -40,7 +40,7 @@ function handleModalAcceptClick() {
         description: profileDescription
       });
       this works ^^ */
-
+      console.log("add is called");
       //my attempt at mongodb
       var request = new XMLHttpRequest();
       var url = "/lizards/addProfile";
@@ -49,7 +49,8 @@ function handleModalAcceptClick() {
       var requestBody = JSON.stringify({
         name: profileName,
         photoURL: profilePhoto,
-        description: profileDescription
+        description: profileDescription,
+        hearts: 0
       });
 
       request.addEventListener('load', function (event) {
@@ -63,6 +64,7 @@ function handleModalAcceptClick() {
           });
           var profileContainer = document.querySelector('.profile-container');
           profileContainer.insertAdjacentHTML('beforeend', newProfileHTML);
+          //hideCreateProfileModal();
         } else {
           alert("Error storing photo: " + event.target.response);
         }
@@ -71,18 +73,84 @@ function handleModalAcceptClick() {
 
       request.setRequestHeader('Content-Type', 'application/json');
       request.send(requestBody);
-      //^^
 
       clearSearchAndReinsertProfiles();
-  
+
       hideCreateProfileModal();
   
-    } else {
+    } 
+    else if(profileName) {
+      var request = new XMLHttpRequest();
+      //var name = getNameFromURL();
+      //var url = "/lizards/" + profileName + "/removeProfile";
+      var url = "/lizards/removeProfile";
+      request.open("POST", url);
+      console.log(url);//correct
+      console.log(profileName);//correct
+      var requestBody = JSON.stringify({
+        name: profileName,
+      });
+      console.log(requestBody);//correct
+      request.addEventListener('load', function (event) {
+        console.log(event.target.status);
+        if (event.target.status === 200) {
+          //var profileTemplate = Handlebars.templates.profile;
+          console.log("Profile Deleted");
+          //remove profile from client side
+        } 
+        else {
+          console.log(event.target.status);//correct
+          alert("Error deleting profile");
+        }
+        });
+
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.send(requestBody);//fails here
+
+      clearSearchAndReinsertProfiles();
+
+      hideCreateProfileModal();
+    }
+    else {
   
-      alert('You must specify your name, description, and provide a photo for your profile.');
+      alert('You must specify your name, description, and provide a photo for your profile, or provide just the name to delete a profile.');
   
     }
 }
+
+/*
+function handleDeleteProfileClick() {
+
+  var request = new XMLHttpRequest();
+  var name = getNameFromURL();
+  var url = "/lizards/" + name + "/deleteProfile";
+  request.open("POST", url);
+
+  var requestBody = JSON.stringify({
+    name: name,
+  });
+
+  request.addEventListener('load', function (event) {
+    if (event.target.status === 200) {
+      var photoCardTemplate = Handlebars.templates.photoCard;
+      var newPhotoCardHTML = photoCardTemplate({
+        photoURL: photoURL,
+        caption: caption
+      });
+      var photoCardContainer = document.querySelector('.photo-card-container');
+      photoCardContainer.insertAdjacentHTML('beforeend', newPhotoCardHTML);
+    } else {
+      alert("Error storing photo: " + event.target.response);
+    }
+  });
+
+    request.setRequestHeader('Content-Type', 'application/json');
+    request.send(requestBody);
+
+    hideModal();
+
+}
+//test above*/
 
 function clearSearchAndReinsertProfiles() {
     document.getElementById('navbar-search-input').value = "";
@@ -160,7 +228,6 @@ function parseProfile(profileElem) {
     var profileName = profileElem.querySelector('.profile-name');
     profile.name = profileName.textContent.trim();
   
-    // var profilePhoto = profileElem.querySelector('.profile-photo a');
     var profilePhoto = profileElem.querySelector('.profile-photo');
     profile.photoURL = profilePhoto.src;
 
@@ -171,6 +238,15 @@ function parseProfile(profileElem) {
  * Wait until the DOM content is loaded, and then hook up UI interactions, etc.
  */
 window.addEventListener('DOMContentLoaded', function () {
+
+    //add event listener for delete button
+
+    var deleteProfileButton = document.getElementById('delete-profile-button');
+    if(deleteProfileButton) {
+      //deleteProfileButton.addEventListener('click', handleDeleteProfileClick); //make handle function
+    }
+
+    //add event listener for heart button?
 
     var profileElems = document.getElementsByClassName('profile');
     for (var i = 0; i < profileElems.length; i++) {
