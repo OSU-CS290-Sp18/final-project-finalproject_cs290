@@ -40,7 +40,7 @@ function handleModalAcceptClick() {
         description: profileDescription
       });
       this works ^^ */
-
+      console.log("add is called");
       //my attempt at mongodb
       var request = new XMLHttpRequest();
       var url = "/lizards/addProfile";
@@ -90,8 +90,9 @@ function handleModalAcceptClick() {
       var requestBody = JSON.stringify({
         name: profileName,
       });
-      console.log(requestBody);
+      console.log(requestBody);//correct
       request.addEventListener('load', function (event) {
+        console.log(event.target.status);
         if (event.target.status === 200) {
           //var profileTemplate = Handlebars.templates.profile;
           console.log("Profile Deleted");
